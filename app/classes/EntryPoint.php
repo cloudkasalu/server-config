@@ -9,7 +9,7 @@ class EntryPoint{
     private function loadTemplate($templateFileName, $variables = []) {
         extract($variables);
         ob_start();
-        include __DIR__ . '/../templates/' . $templateFileName;
+        include __DIR__ . '/templates/' . $templateFileName;
         return ob_get_clean();
 
     }
@@ -28,7 +28,7 @@ class EntryPoint{
 
         try {
 
-            include __DIR__ . '/../includes/DatabaseConnection.php';
+            include __DIR__ . '/includes/DatabaseConnection.php';
             // include __DIR__ . '/../controllers/AdminController.php';
             // include __DIR__ . '/../controllers/VisitorController.php';
             // include __DIR__ . '/../includes/autoload.php';
@@ -76,11 +76,11 @@ class EntryPoint{
         $route = array_shift($url_request);
 
         if($route === "dashboard"){
-            include __DIR__ . '/../templates/admin/layout.php';
+            include __DIR__ . '/templates/admin/layout.php';
         }else if($route === "login" || $route === "error"){
-            include __DIR__ . '/../templates/blank_layout.php';
+            include __DIR__ . '/templates/blank_layout.php';
         }else{
-            include __DIR__ . '/../templates/visitor/layout.php';
+            include __DIR__ . '/templates/visitor/layout.php';
         }
 
 
